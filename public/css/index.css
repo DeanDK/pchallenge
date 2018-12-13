@@ -12,3 +12,39 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+a:-webkit-any-link {
+  color: white;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* ========================
+          Header
+   ======================== */
+
+.header {
+  height: 4rem;
+  background-color: #1f212c;
+  opacity: 0.9;
+}
+
+.header__logo {
+  padding-left: 1rem;
+}
+
+.header__navigation-links {
+  color: white;
+  float: right;
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.header__navigation-links-link-home {
+  display: inline-block;
+  padding-right: 1rem;
+}
+
+.header__navigation-links-link-add {
+  display: inline-block;
+}
