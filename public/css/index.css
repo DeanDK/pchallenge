@@ -48,3 +48,17 @@ a:-webkit-any-link {
 .header__navigation-links-link-add {
   display: inline-block;
 }
+
+/* ========================
+          Info
+   ======================== */
+
+.info {
+  height: 3rem;
+  border-bottom: 1px solid grey;
+}
+
+.info__name {
+  font-weight: bold;
+  padding: 1rem;
+}
