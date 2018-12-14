@@ -49,10 +49,6 @@ a:-webkit-any-link {
   display: inline-block;
 }
 
-/* ========================
-          Info
-   ======================== */
-
 .info {
   height: 3rem;
   border-bottom: 1px solid grey;
@@ -61,4 +57,36 @@ a:-webkit-any-link {
 .info__name {
   font-weight: bold;
   padding: 1rem;
+}
+
+/* ========================
+          WineItems
+   ======================== */
+
+.element {
+  height: 5rem;
+  background-color: #fff;
+  margin: 20px 20px auto;
+  border: 1px solid #c8c8c8;
+}
+
+.element__image {
+  float: right;
+  margin-top: 1rem;
+  margin-right: 1rem;
+}
+
+.element__info {
+  display: inline-block;
+  float: left;
+  padding: 1rem 1rem;
+}
+.element__image img {
+  border-radius: 50%;
+}
+
+.element__info-name {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: bold;
 }
