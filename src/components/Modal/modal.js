@@ -35,11 +35,11 @@ class ModalExample extends React.Component {
                 </div>
                 <div className="top__title">{this.state.wine.title}</div>
                 <div className="top__information">
-                  <label for="Country" className="top__information-country">
+                  <label htmlFor="Country" className="top__information-country">
                     Country:
                   </label>
                   {this.state.wine.country} <br />
-                  <label for="Year" className="top__information-country">
+                  <label htmlFor="Year" className="top__information-country">
                     Year:
                   </label>
                   {this.state.wine.year}

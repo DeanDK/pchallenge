@@ -86,10 +86,18 @@ a:-webkit-any-link {
   border-radius: 50%;
 }
 
+.element__image a {
+  color: black;
+}
+
 .element__info-name {
   display: inline-block;
   font-size: 1rem;
   font-weight: bold;
+}
+
+.element__image-edit {
+  margin-right: 1rem;
 }
 
 /* ========================

@@ -10,6 +10,10 @@ import ReduxThunk from "redux-thunk";
 import reducers from "./reducers";
 import Routes from "./routes";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
+library.add(faTrash, faEdit);
+
 const createStoreWithMiddleware = applyMiddleware(
   promiseMiddleware,
   ReduxThunk

@@ -1,10 +1,18 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class WineItems extends Component {
   toggle = index => {
     this.props.getWine(index);
   };
+
+  delete = e => {
+    e.stopPropagation();
+    console.log("tocuhed");
+  };
+
   render() {
     if (typeof this.props === "object") {
       return (
@@ -18,6 +26,10 @@ class WineItems extends Component {
             <div className="element__info-company">{this.props.country}</div>
           </div>
           <div className="element__image">
+            <Link to="/edit">
+              <FontAwesomeIcon icon="edit" className="element__image-edit" />
+            </Link>
+            <FontAwesomeIcon icon="trash" onClick={e => this.delete(e)} />
             <img src="/images/wine.png" alt="logo" height="50px" />
           </div>
         </div>

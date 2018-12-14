@@ -20,12 +20,6 @@ test("render without error", () => {
   expect(component.length).toBe(1);
 });
 
-test("renders no text when props is not object", () => {
-  const wrapper = setup({ wines: [] });
-  const component = findByTestAttr(wrapper, "component-wine_items");
-  expect(component.text()).toBe("");
-});
-
 test("render text when prop is object", () => {
   const wrapper = setup({
     wines: { title: "something", country: "something" }
