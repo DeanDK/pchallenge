@@ -8,7 +8,7 @@ import Layout from "./hoc/layout.js";
 const Routes = () => (
   <Layout>
     <Switch>
-      <Route exact path="/" component={Home} />
+      <Route path="/" exact component={Home} />
       <Route component={NoRoute} />
     </Switch>
   </Layout>

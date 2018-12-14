@@ -1,14 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import Info from "./../components/Info/info";
 import WineItems from "./../widgets/wine_items.js";
-import { getAllWines } from "./../actions";
+import Modal from "./../components/Modal/modal.js";
+import { getAllWines, getWine } from "./../actions";
 import { bindActionCreators } from "redux";
 
 class HomeContainer extends Component {
   state = {
-    wines: []
+    wines: [],
+    isClicked: false
   };
 
   componentWillMount() {
@@ -20,10 +23,22 @@ class HomeContainer extends Component {
       this.setState({ wines: nextProps.wines.wineList });
   }
 
+  _getWine = id => {
+    this.setState({ isClicked: true });
+    this.props.getWine(id);
+  };
+
   renderItems = wines =>
     wines
       ? wines.map((item, index) => {
-          return <WineItems {...item} key={index} index={index} />;
+          return (
+            <WineItems
+              {...item}
+              key={index}
+              index={index}
+              getWine={this._getWine}
+            />
+          );
         })
       : null;
 
@@ -32,6 +47,7 @@ class HomeContainer extends Component {
     return (
       <div>
         <Info />
+        <Modal isClicked={this.state.isClicked} />
         {this.renderItems(wines)}
       </div>
     );
@@ -45,10 +61,14 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllWines }, dispatch);
+  return bindActionCreators({ getAllWines, getWine }, dispatch);
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(HomeContainer);
+
+HomeContainer.propTypes = {
+  wines: PropTypes.object
+};
