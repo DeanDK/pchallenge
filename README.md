@@ -12,5 +12,5 @@ In order to start the app, run next commands at the same time
 
 ## CSS
 
-Application uses plain css due to its size. In case <br>
-of bigger application, 7-1 pattern with the use of SCCS would be better choice.
+Application uses plain css due to its size. In case
+of bigger application <br>, 7-1 pattern with the use of SCCS would be better choice.
