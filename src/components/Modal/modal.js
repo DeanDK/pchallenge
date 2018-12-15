@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 class ModalExample extends React.Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class ModalExample extends React.Component {
   };
 
   render() {
-    if (this.state.wine) {
+    if (Object.keys(this.state.wine).length) {
       return (
         <div>
           <Modal isOpen={this.state.modal} className={this.props.className}>
@@ -70,3 +71,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(ModalExample);
+
+Modal.propTypes = {
+  wines: PropTypes.object
+};
