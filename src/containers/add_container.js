@@ -14,7 +14,7 @@ class AddContainer extends Component {
     }
   };
 
-  onTextChange = e => {
+  _onTextChange = e => {
     let { wine } = this.state;
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
@@ -33,17 +33,21 @@ class AddContainer extends Component {
     return element !== "";
   };
 
-  submit = () => {
+  _submit = () => {
     if (this.formVerification()) {
       this.props.addWine(this.state.wine);
+      alert(
+        "Added :) This response should usually come from" +
+          " the server an be displayed as a message. This serves just as confirmation :P"
+      );
     }
   };
 
   render() {
     return (
       <AddForm
-        onTextChange={this.onTextChange}
-        submit={this.submit}
+        onTextChange={this._onTextChange}
+        submit={this._submit}
         page="add"
       />
     );

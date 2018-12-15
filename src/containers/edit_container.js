@@ -9,9 +9,9 @@ class EditContainer extends Component {
   state = {
     wine: {
       id: "",
-      title: "hello",
-      country: "hehe",
-      year: "hehe"
+      title: "",
+      country: "",
+      year: ""
     }
   };
 
@@ -23,18 +23,20 @@ class EditContainer extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.wines.wine) {
+    const { wine } = this.state;
+    if (nextProps.wines.wine && !Object.values(wine).every(this.notEmpty)) {
       const oneWine = { ...nextProps.wines.wine };
       this.setState({ wine: oneWine });
     }
   }
 
-  onTextChange = e => {
+  _onTextChange = e => {
     let { wine } = this.state;
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
 
     wine[fieldName] = fieldValue;
+    console.log(this.state.wine);
     this.setState({ wine });
   };
 
@@ -48,17 +50,21 @@ class EditContainer extends Component {
     return element !== "";
   };
 
-  submit = () => {
+  _submit = () => {
     if (this.formVerification()) {
       this.props.updateWine(this.state.wine);
+      alert(
+        "Updated :) This response should usually come from" +
+          " the server an be displayed as a message. This serves just as confirmation :P"
+      );
     }
   };
 
   render() {
     return (
       <AddForm
-        onTextChange={this.onTextChange}
-        submit={this.submit}
+        onTextChange={this._onTextChange}
+        submit={this._submit}
         wine={this.state.wine}
         page="edit"
       />
