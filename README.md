@@ -6,6 +6,6 @@ Application uses json-server to fake REST API
 
 In order to start the app, run next commands at the same time
 
-# `npm start`
+#### `npm start`
 
-# `json-server --watch db.json --port 3004`
+#### `json-server --watch db.json --port 3004`
