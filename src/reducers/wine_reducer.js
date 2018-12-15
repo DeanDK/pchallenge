@@ -4,6 +4,8 @@ export default function(state = {}, action) {
       return { ...state, wineList: action.payload };
     case "GET_WINE":
       return { ...state, wine: action.payload };
+    case "GET_ADDED_WINE":
+      return { ...state, added: action.payload };
     default:
       return state;
   }

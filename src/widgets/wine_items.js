@@ -8,9 +8,9 @@ class WineItems extends Component {
     this.props.getWine(index);
   };
 
-  delete = e => {
+  delete = (e, id) => {
     e.stopPropagation();
-    console.log("tocuhed");
+    this.props.deleteWine(id);
   };
 
   render() {
@@ -29,7 +29,10 @@ class WineItems extends Component {
             <Link to="/edit">
               <FontAwesomeIcon icon="edit" className="element__image-edit" />
             </Link>
-            <FontAwesomeIcon icon="trash" onClick={e => this.delete(e)} />
+            <FontAwesomeIcon
+              icon="trash"
+              onClick={e => this.delete(e, this.props.id)}
+            />
             <img src="/images/wine.png" alt="logo" height="50px" />
           </div>
         </div>

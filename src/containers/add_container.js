@@ -1,4 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+
+import { addWine } from "./../actions";
 
 class AddContainer extends Component {
   state = {
@@ -19,7 +23,8 @@ class AddContainer extends Component {
   };
 
   formVerification = e => {
-    const array = Object.values(this.state.wine);
+    const { wine } = this.state;
+    const array = Object.values(wine);
     return array.every(this.notEmpty);
   };
 
@@ -28,10 +33,13 @@ class AddContainer extends Component {
   };
 
   submit = () => {
-    // ... formVerification
+    if (this.formVerification()) {
+      this.props.addWine(this.state.wine);
+    }
   };
 
   render() {
+    console.log(this.props);
     // form + onSumbit better option
     return (
       <div className="add_form_body">
@@ -70,4 +78,17 @@ class AddContainer extends Component {
   }
 }
 
-export default AddContainer;
+function mapStateToProps(state) {
+  return {
+    wines: state.wineReducer
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addWine }, dispatch);
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddContainer);

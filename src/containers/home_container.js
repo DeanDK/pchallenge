@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import Info from "./../components/Info/info";
 import WineItems from "./../widgets/wine_items.js";
 import Modal from "./../components/Modal/modal.js";
-import { getAllWines, getWine } from "./../actions";
+import { getAllWines, getWine, deleteWine } from "./../actions";
 import { bindActionCreators } from "redux";
 
 class HomeContainer extends Component {
@@ -28,15 +28,21 @@ class HomeContainer extends Component {
     this.props.getWine(id);
   };
 
+  _deleteWine = id => {
+    this.props.deleteWine(id);
+    window.location.reload();
+  };
+
   renderItems = wines =>
     wines
       ? wines.map((item, index) => {
           return (
             <WineItems
               {...item}
-              key={index}
+              key={item.id}
               index={index}
               getWine={this._getWine}
+              deleteWine={this._deleteWine}
             />
           );
         })
@@ -61,7 +67,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getAllWines, getWine }, dispatch);
+  return bindActionCreators({ getAllWines, getWine, deleteWine }, dispatch);
 }
 
 export default connect(
