@@ -5,7 +5,15 @@ class Header extends Component {
   render() {
     return (
       <header className="header" data-test="component-header">
-        <img src="/images/cloudoki.png" alt="logo" className="header__logo" />
+        <Link to="/">
+          <img
+            src="/images/sweet_wine.png"
+            alt="logo"
+            height="60px"
+            width="100px"
+            className="header__logo"
+          />
+        </Link>
         <nav className="header__navigation-links">
           <div className="header__navigation-links-link-home">
             <Link to="/">Home</Link>

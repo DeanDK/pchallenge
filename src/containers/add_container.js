@@ -9,7 +9,7 @@ class AddContainer extends Component {
   state = {
     wine: {
       title: "",
-      country: ",",
+      country: "",
       year: ""
     }
   };
@@ -44,11 +44,13 @@ class AddContainer extends Component {
   };
 
   render() {
+    console.log(this.state.wine);
     return (
       <AddForm
         onTextChange={this._onTextChange}
         submit={this._submit}
         page="add"
+        addFormWine={this.state.wine}
       />
     );
   }

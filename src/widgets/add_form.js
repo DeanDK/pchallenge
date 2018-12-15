@@ -1,7 +1,7 @@
 import React from "react";
 
 const Add = props => (
-  <div className="add_form_body">
+  <div className="add_form_body" data-set="component-add_form">
     <div className="add_form_body__content">
       <div className="add_form_body__content-title">
         {props.page === "add" ? "Add Wine" : "Update Wine"}
@@ -11,7 +11,10 @@ const Add = props => (
           type="text"
           placeholder="title"
           name="title"
-          value={props.page === "edit" ? props.wine.title : ""}
+          data-test="title-input"
+          value={
+            props.page === "edit" ? props.wine.title : props.addFormWine.title
+          }
           onChange={props.onTextChange}
         />
       </div>
@@ -20,7 +23,11 @@ const Add = props => (
           type="text"
           placeholder="country"
           name="country"
-          value={props.page === "edit" ? props.wine.country : ""}
+          value={
+            props.page === "edit"
+              ? props.wine.country
+              : props.addFormWine.country
+          }
           onChange={props.onTextChange}
         />
       </div>
@@ -29,7 +36,9 @@ const Add = props => (
           type="text"
           placeholder="year"
           name="year"
-          value={props.page === "edit" ? props.wine.year : ""}
+          value={
+            props.page === "edit" ? props.wine.year : props.addFormWine.year
+          }
           onChange={props.onTextChange}
         />
       </div>

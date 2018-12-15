@@ -25,12 +25,8 @@ a:-webkit-any-link {
 
 .header {
   height: 4rem;
-  background-color: #1f212c;
+  background-color: black;
   opacity: 0.9;
-}
-
-.header__logo {
-  padding-left: 1rem;
 }
 
 .header__navigation-links {
@@ -57,6 +53,7 @@ a:-webkit-any-link {
 .info__name {
   font-weight: bold;
   padding: 1rem;
+  padding-left: 1.4rem;
 }
 
 /* ========================

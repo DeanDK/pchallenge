@@ -1,7 +1,7 @@
 {
   "wines": [
     {
-      "title": "Zdrepceva Krv",
+      "title": "Zdrepceva Krv ",
       "country": "Serbia",
       "year": "1990",
       "id": 1
@@ -21,7 +21,7 @@
     {
       "title": "Matusko Dingac",
       "country": "Croatia",
-      "year": "2011",
+      "year": "2010",
       "id": 4
     }
   ]
