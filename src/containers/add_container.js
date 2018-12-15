@@ -44,7 +44,6 @@ class AddContainer extends Component {
   };
 
   render() {
-    console.log(this.state.wine);
     return (
       <AddForm
         onTextChange={this._onTextChange}
