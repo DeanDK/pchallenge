@@ -2,17 +2,32 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { addWine } from "./../actions";
+import { updateWine, getWine } from "./../actions";
 import AddForm from "./../widgets/add_form.js";
 
-class AddContainer extends Component {
+class EditContainer extends Component {
   state = {
     wine: {
-      title: "",
-      country: ",",
-      year: ""
+      id: "",
+      title: "hello",
+      country: "hehe",
+      year: "hehe"
     }
   };
+
+  componentWillMount() {
+    const id = window.location.href.split("/")[4];
+    this.setState({ id }, () => {
+      this.props.getWine(id);
+    });
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.wines.wine) {
+      const oneWine = { ...nextProps.wines.wine };
+      this.setState({ wine: oneWine });
+    }
+  }
 
   onTextChange = e => {
     let { wine } = this.state;
@@ -35,7 +50,7 @@ class AddContainer extends Component {
 
   submit = () => {
     if (this.formVerification()) {
-      this.props.addWine(this.state.wine);
+      this.props.updateWine(this.state.wine);
     }
   };
 
@@ -44,7 +59,8 @@ class AddContainer extends Component {
       <AddForm
         onTextChange={this.onTextChange}
         submit={this.submit}
-        page="add"
+        wine={this.state.wine}
+        page="edit"
       />
     );
   }
@@ -57,10 +73,10 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ addWine }, dispatch);
+  return bindActionCreators({ updateWine, getWine }, dispatch);
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(AddContainer);
+)(EditContainer);

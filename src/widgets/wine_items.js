@@ -26,7 +26,7 @@ class WineItems extends Component {
             <div className="element__info-company">{this.props.country}</div>
           </div>
           <div className="element__image">
-            <Link to="/edit">
+            <Link to={`/edit/${this.props.id}`}>
               <FontAwesomeIcon icon="edit" className="element__image-edit" />
             </Link>
             <FontAwesomeIcon

@@ -6,6 +6,10 @@ export default function(state = {}, action) {
       return { ...state, wine: action.payload };
     case "GET_ADDED_WINE":
       return { ...state, added: action.payload };
+    case "GET_DELETED_WINE":
+      return { ...state, deleted: action.payload };
+    case "GET_UPDATED_WINE":
+      return { ...state, updated: action.payload };
     default:
       return state;
   }

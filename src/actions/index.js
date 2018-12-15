@@ -22,3 +22,12 @@ export function deleteWine(id) {
   const request = axios.delete(`${URL}/wines/${id}`).then(res => res.data);
   return { type: "GET_DELETED_WINE", payload: request };
 }
+
+export function updateWine({ title, country, year, id }) {
+  console.log(title, country, year, id);
+  const request = axios
+    .put(`${URL}/wines/${id}`, { title, country, year })
+    .then(res => res.data);
+
+  return { type: "GET_UPDATED_WINE", payload: request };
+}
