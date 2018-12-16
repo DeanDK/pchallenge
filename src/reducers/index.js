@@ -1,7 +1,8 @@
 import { combineReducers } from "redux";
-import wineReducer from "./wine_reducer.js";
+import contactReducer from "./contact_reducer.js";
 
 const rootReducer = combineReducers({
-  wineReducer
+  contactReducer
 });
+
 export default rootReducer;

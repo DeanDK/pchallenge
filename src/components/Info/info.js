@@ -1,8 +1,9 @@
 import React from "react";
+import InfoContainer from "./../../containers/info_container.js";
 
 const Info = () => (
-  <div className="info" data-test="component-info">
-    <div className="info__name">Wine's List</div>
+  <div>
+    <InfoContainer />
   </div>
 );
 

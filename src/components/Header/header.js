@@ -7,21 +7,13 @@ class Header extends Component {
       <header className="header" data-test="component-header">
         <Link to="/">
           <img
-            src="/images/sweet_wine.png"
+            src="/images/pipedrive_logo.png"
             alt="logo"
-            height="60px"
-            width="100px"
+            height="55px"
+            width="180px"
             className="header__logo"
           />
         </Link>
-        <nav className="header__navigation-links">
-          <div className="header__navigation-links-link-home">
-            <Link to="/">Home</Link>
-          </div>
-          <div className="header__navigation-links-link-add">
-            <Link to="/add">Add</Link>
-          </div>
-        </nav>
       </header>
     );
   }

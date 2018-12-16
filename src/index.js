@@ -11,8 +11,8 @@ import reducers from "./reducers";
 import Routes from "./routes";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faTrash, faEdit } from "@fortawesome/free-solid-svg-icons";
-library.add(faTrash, faEdit);
+import { faBuilding } from "@fortawesome/free-solid-svg-icons";
+library.add(faBuilding);
 
 const createStoreWithMiddleware = applyMiddleware(
   promiseMiddleware,
