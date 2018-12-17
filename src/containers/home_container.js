@@ -27,9 +27,11 @@ class HomeContainer extends Component {
   componentWillReceiveProps(nextProps) {
     const { list } = this.state;
     const data = nextProps.contacts.contactList.data;
-    if (!list.some(r => data.includes(r))) {
-      const mergedList = list.concat(data);
-      this.setState({ list: mergedList });
+    if (data) {
+      if (!list.some(parts => data.includes(parts))) {
+        const mergedList = list.concat(data);
+        this.setState({ list: mergedList });
+      }
     }
   }
 

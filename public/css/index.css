@@ -24,6 +24,13 @@ li {
   }
 }
 
+.btn:not(:disabled):not(.disabled) {
+  border-radius: 0;
+  background-color: #fff;
+  color: black;
+  font-weight: bold;
+}
+
 /* ========================
           Header
    ======================== */
@@ -93,8 +100,19 @@ li {
 
 .element__info-company {
   display: inline-block;
+  color: grey;
   padding-left: 0.5rem;
   font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 600px) {
+  .element__info-company {
+    font-size: 0.6rem;
+  }
+
+  .element__image {
+    margin-right: 0rem;
+  }
 }
 
 /* ========================
@@ -115,32 +133,44 @@ li {
           Modal
    ======================== */
 
-.top {
-  position: relative;
-}
 .top__title {
-  position: inherit;
-  left: 50%;
-  transform: translate(-11%);
+  display: flex;
+  justify-content: center;
   font-weight: bold;
+}
+
+.top__phone {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  color: lightgreen;
 }
 
 .top__image {
-  position: inherit;
-  left: 50%;
-  transform: translate(-8%);
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .top__information {
-  border-top: 1px solid grey;
+  border-top: 1px solid lightgrey;
   margin-top: 1rem;
   padding-top: 1rem;
-  padding-left: 1rem;
+  padding-left: 1.5em;
+  display: flex;
+  justify-content: justify-center;
+  text-align: right;
 }
 
-.top__information-country {
-  padding-right: 0.5rem;
+.top__information-labels {
   font-weight: bold;
+}
+
+.top__information-values {
+  padding-right: 10rem;
+  padding-left: 2rem;
+  color: grey;
+  text-align: left;
 }
 
 .modal-header {
@@ -151,6 +181,15 @@ li {
   border-radius: 0 !important;
 }
 
+.modal-footer {
+  background-color: #f2f2f2;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
 .modal {
   border-bottom: 1px solid grey !important;
+  margin-top: 5rem;
 }

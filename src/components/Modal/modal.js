@@ -10,6 +10,7 @@ class ModalExample extends React.Component {
       modal: false,
       info: {},
       email: "",
+      phone: "",
       initialRender: false
     };
   }
@@ -20,48 +21,40 @@ class ModalExample extends React.Component {
       this.setState({
         modal: nextProps.isClicked,
         initialRender: true,
-        info,
-        email: info.email[0]
+        email: info.email[0],
+        phone: info.phone[0],
+        info
       });
     }
   };
 
   render() {
-    const { info, email, initialRender } = this.state;
+    const { info, email, initialRender, phone } = this.state;
     if (this.state.info && initialRender) {
       return (
         <div>
           <Modal isOpen={this.state.modal} className={this.props.className}>
-            <ModalHeader toggle={this.toggle}>Wine Information</ModalHeader>
+            <ModalHeader toggle={this.toggle}>Person Information</ModalHeader>
             <ModalBody>
               <div className="top">
                 <div className="top__image">
                   <img src="/images/logo.png" alt="logo" height="50px" />
                 </div>
                 <div className="top__title">{info.name}</div>
+                <div className="top__phone">{phone.value}</div>
                 <div className="top__information">
-                  <label htmlFor="Country" className="top__information-country">
-                    Email:
-                  </label>
-                  {email.value}
-                  <br />
-                  <label htmlFor="Year" className="top__information-country">
-                    Organization:
-                  </label>
-                  {info.org_name}
-                  <br />
-                  <label htmlFor="Country" className="top__information-country">
-                    CC Email:
-                  </label>
-                  {info.cc_email} <br />
-                  <label htmlFor="Country" className="top__information-country">
-                    Still Active:
-                  </label>
-                  {info.company_id} <br />
-                  <label htmlFor="Country" className="top__information-country">
-                    Activities Count:
-                  </label>
-                  {info.activities_count} <br />
+                  <div className="top__information-labels">
+                    <p htmlFor="Email">Email</p>
+                    <p htmlFor="CC_Email">Organization</p>
+                    <p htmlFor="Visible to">Visible</p>
+                    <p htmlFor="Activities Count">Count</p>
+                  </div>
+                  <div className="top__information-values">
+                    <p>{email.value}</p>
+                    <p>{info.org_name}</p>
+                    <p>{info.visible_to}</p>
+                    <p>{info.company_id}</p>
+                  </div>
                 </div>
               </div>
             </ModalBody>
